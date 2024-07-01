@@ -1,0 +1,81 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: vuetorrent
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: app-template
+      version: 3.2.1
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s
+        namespace: flux-system
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      strategy: rollback
+      retries: 3
+  dependsOn:
+    - name: volsync
+      namespace: volsync-system
+  values:
+    controllers:
+      qbittorrent:
+        annotations:
+          reloader.stakater.com/auto: "true"
+        containers:
+          main:
+            image:
+              repository: ghcr.io/linuxserver/qbittorrent
+              tag: 4.6.4-r1-ls327@sha256:a4a72bd8e7891ec1ba01cfc5cfcb34b4d7b78c47a05ed8966cd18bd44a016894
+            env:
+              TZ: Asia/Jerusalem
+              DOCKER_MODS: ghcr.io/gabe565/linuxserver-mod-vuetorrent:2.8.0
+              WEBUI_PORT: &port 80
+              TORRENTING_PORT: &bittorrentPort 6881
+            resources:
+              requests:
+                cpu: 100m
+              limits:
+                memory: 4Gi
+    service:
+      app:
+        controller: qbittorrent
+        type: LoadBalancer
+        annotations:
+          io.cilium/lb-ipam-ips: 192.168.1.220
+        ports:
+          http:
+            port: *port
+          bittorrent:
+            enabled: true
+            port: *bittorrentPort
+            protocol: TCP
+    ingress:
+      app:
+        className: internal
+        hosts:
+          - host: &host "vt.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                service:
+                  identifier: app
+                  port: http
+        tls:
+          - hosts:
+              - *host
+    persistence:
+      config:
+        existingClaim: vuetorrent
+      media:
+        existingClaim: pvc-smb
+      tmp:
+        type: emptyDir
+      vuetorrent:
+        type: emptyDir
