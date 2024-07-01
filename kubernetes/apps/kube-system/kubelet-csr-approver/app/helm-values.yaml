@@ -1,0 +1,3 @@
+---
+providerRegex: ^(k8s-control-plane-1|k8s-worker-1|k8s-worker-2|k8s-worker-3)$
+bypassDnsResolution: true
