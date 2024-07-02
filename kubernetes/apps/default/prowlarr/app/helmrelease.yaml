@@ -41,13 +41,13 @@ spec:
               repository: ghcr.io/onedr0p/prowlarr
               tag: 1.19.0.4568@sha256:fa2d6968b50c4b15ea80bf32ef6ccaf0b7190f71e6c53cc35ae1d2c97ba8f124
             env:
-              COMPlus_EnableDiagnostics: "0"
-              PROWLARR__INSTANCE_NAME: Prowlarr
-              PROWLARR__PORT: &port 80
-              PROWLARR__LOG_LEVEL: info
-              PROWLARR__AUTHENTICATION_METHOD: Forms
-              PROWLARR__AUTHENTICATION_REQUIRED: DisabledForLocalAddresses
-              PROWLARR__THEME: dark
+              PROWLARR__APP__INSTANCENAME: Prowlarr
+              PROWLARR__APP__THEME: dark
+              PROWLARR__AUTH__METHOD: Forms
+              PROWLARR__AUTH__REQUIRED: DisabledForLocalAddresses
+              PROWLARR__LOG__DBENABLED: "False"
+              PROWLARR__LOG__LEVEL: info
+              PROWLARR__SERVER__PORT: &port 80
               TZ: Asia/Jerusalem
             envFrom: *envFrom
             probes:

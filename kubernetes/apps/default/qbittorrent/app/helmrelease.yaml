@@ -3,7 +3,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: vuetorrent
+  name: qbittorrent
 spec:
   interval: 30m
   chart:
@@ -34,10 +34,10 @@ spec:
           main:
             image:
               repository: ghcr.io/linuxserver/qbittorrent
-              tag: 4.6.4-r1-ls327@sha256:a4a72bd8e7891ec1ba01cfc5cfcb34b4d7b78c47a05ed8966cd18bd44a016894
+              tag: 4.6.5-r0-ls337@sha256:89b78fe6a5553d1bf4bdf2b158671b86142ec57ffecbdf0a4ab9da62a8dabd8a
             env:
               TZ: Asia/Jerusalem
-              DOCKER_MODS: ghcr.io/gabe565/linuxserver-mod-vuetorrent:2.8.0
+              DOCKER_MODS: ghcr.io/gabe565/linuxserver-mod-vuetorrent:2.10.2
               WEBUI_PORT: &port 80
               TORRENTING_PORT: &bittorrentPort 6881
             resources:
@@ -62,7 +62,7 @@ spec:
       app:
         className: internal
         hosts:
-          - host: &host "vt.${SECRET_DOMAIN}"
+          - host: &host "qb.${SECRET_DOMAIN}"
             paths:
               - path: /
                 service:
@@ -73,7 +73,7 @@ spec:
               - *host
     persistence:
       config:
-        existingClaim: vuetorrent
+        existingClaim: qbittorrent
       media:
         existingClaim: pvc-smb
       tmp:
