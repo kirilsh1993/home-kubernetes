@@ -45,14 +45,13 @@ spec:
               repository: ghcr.io/onedr0p/radarr
               tag: 5.7.0.8882@sha256:67cf7fa3b10fbb9771ef11c62a215d50956a238c1a27b4195f19bdc92b796cc7
             env:
-              COMPlus_EnableDiagnostics: "0"
-              RADARR__AUTHENTICATION_METHOD: Forms
-              RADARR__AUTHENTICATION_REQUIRED: DisabledForLocalAddresses
-              RADARR__INSTANCE_NAME: Radarr
-              RADARR__PORT: &port 80
-              RADARR__LOG_LEVEL: info
-              RADARR__THEME: dark
-              TZ: Asia/Jerusalem
+              RADARR__APP__INSTANCENAME: Radarr
+              RADARR__APP__THEME: dark
+              RADARR__AUTH__METHOD: Forms
+              RADARR__AUTH__REQUIRED: DisabledForLocalAddresses
+              RADARR__LOG__DBENABLED: "False"
+              RADARR__LOG__LEVEL: info
+              RADARR__SERVER__PORT: &port 80
             envFrom: *envFrom
             probes:
               liveness: &probes
