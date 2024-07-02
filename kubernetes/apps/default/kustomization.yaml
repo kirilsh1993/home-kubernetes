@@ -2,22 +2,22 @@
 # yaml-language-server: $schema=https://json.schemastore.org/kustomization
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-resources:
+resources: []
   # Pre Flux-Kustomizations
-  - ./namespace.yaml
+  # - ./namespace.yaml
   # Flux-Kustomizations
-  - ./bazarr/ks.yaml
-  - ./csi-driver-smb/ks.yaml
-  - ./flaresolverr/ks.yaml
-  - ./homarr/ks.yaml
+  # - ./bazarr/ks.yaml
+  # - ./csi-driver-smb/ks.yaml
+  # - ./flaresolverr/ks.yaml
+  # - ./homarr/ks.yaml
   # - ./miniflux/ks.yaml
-  - ./overseerr/ks.yaml
+  # - ./overseerr/ks.yaml
   # - ./plex/ks.yaml
-  - ./prowlarr/ks.yaml
-  - ./qbittorrent/ks.yaml
-  - ./radarr/ks.yaml
-  - ./recyclarr/ks.yaml
-  - ./sabnzbd/ks.yaml
-  - ./sonarr/ks.yaml
-  - ./tautulli/ks.yaml
-  - ./whisparr/ks.yaml
+  # - ./prowlarr/ks.yaml
+  # - ./qbittorrent/ks.yaml
+  # - ./radarr/ks.yaml
+  # - ./recyclarr/ks.yaml
+  # - ./sabnzbd/ks.yaml
+  # - ./sonarr/ks.yaml
+  # - ./tautulli/ks.yaml
+  # - ./whisparr/ks.yaml
