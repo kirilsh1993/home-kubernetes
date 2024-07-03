@@ -7,7 +7,7 @@ resources:
   - ./namespace.yaml
   # Flux-Kustomizations
   # - ./bazarr/ks.yaml
-  - ./csi-driver-smb/ks.yaml
+  # - ./csi-driver-smb/ks.yaml
   # - ./flaresolverr/ks.yaml
   # - ./homarr/ks.yaml
   # - ./miniflux/ks.yaml
