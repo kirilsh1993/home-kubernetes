@@ -6,8 +6,7 @@ resources:
   # Pre Flux-Kustomizations
   - ./namespace.yaml
   # Flux-Kustomizations
-  # - ./bazarr/ks.yaml
-  # - ./csi-driver-smb/ks.yaml
+  - ./bazarr/ks.yaml
   # - ./flaresolverr/ks.yaml
   # - ./homarr/ks.yaml
   # - ./miniflux/ks.yaml
