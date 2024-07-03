@@ -5,7 +5,7 @@ kind: Cluster
 metadata:
   name: postgres16
 spec:
-  instances: 1
+  instances: 3
   imageName: ghcr.io/cloudnative-pg/postgresql:16.3-4
   primaryUpdateStrategy: unsupervised
   storage:
@@ -21,11 +21,11 @@ spec:
   nodeMaintenanceWindow:
     inProgress: false
     reusePVC: true
-  # resources:
-  #   requests:
-  #     cpu: 500m
-  #   limits:
-  #     memory: 1Gi
+  resources:
+    requests:
+      cpu: 500m
+    limits:
+      memory: 1Gi
   monitoring:
     enablePodMonitor: true
     # Ref: https://github.com/cloudnative-pg/cloudnative-pg/issues/2501
