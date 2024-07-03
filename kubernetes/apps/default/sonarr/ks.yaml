@@ -13,6 +13,7 @@ spec:
   dependsOn:
     - name: cloudnative-pg-cluster
     - name: csi-driver-smb
+      namespace: kube-system
     - name: external-secrets-stores
   path: ./kubernetes/apps/default/sonarr/app
   prune: true
