@@ -5,7 +5,7 @@ metadata:
   annotations:
     pv.kubernetes.io/provisioned-by: smb.csi.k8s.io
   name: pv-smb
-  namespace: default
+  namespace: kube-system
 spec:
   capacity:
     storage: 100Gi
@@ -23,4 +23,4 @@ spec:
       source: //192.168.1.108/shared
     nodeStageSecretRef:
       name: smb-secret
-      namespace: default
+      namespace: kube-system

@@ -6,13 +6,13 @@ metadata:
   name: &app csi-driver-smb
   namespace: flux-system
 spec:
-  targetNamespace: default
+  targetNamespace: kube-system
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
   dependsOn:
     - name: external-secrets-stores
-  path: ./kubernetes/apps/default/csi-driver-smb/app
+  path: ./kubernetes/apps/kube-system/csi-driver-smb/app
   prune: true
   sourceRef:
     kind: GitRepository
