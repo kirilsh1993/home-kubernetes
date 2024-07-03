@@ -3,7 +3,7 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: pvc-smb
-  namespace: kube-system
+  namespace: default
 spec:
   accessModes:
     - ReadWriteMany

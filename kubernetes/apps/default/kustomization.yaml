@@ -5,6 +5,8 @@ kind: Kustomization
 resources:
   # Pre Flux-Kustomizations
   - ./namespace.yaml
+  - ./pv.yaml
+  - ./pvc.yaml
   # Flux-Kustomizations
   - ./bazarr/ks.yaml
   # - ./flaresolverr/ks.yaml
