@@ -31,7 +31,7 @@ spec:
           app:
             image:
               repository: ghcr.io/ajnart/homarr
-              tag: 0.15.3
+              tag: 0.15.4
             env:
               DEFAULT_COLOR_SCHEME: dark
               PORT: &port 80
