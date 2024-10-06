@@ -31,7 +31,7 @@ spec:
           app:
             image:
               repository: ghcr.io/onedr0p/bazarr
-              tag: 1.4.4@sha256:59b564141dd9262a4402e1b69b6969846bb500070e522ac915908bc1157b0470
+              tag: 1.4.5@sha256:b7c547ebfcff3e85a988685d21c2ff68e18028469ef5e1e0217f0e29491e20c3
             env:
               TZ: Asia/Jerusalem
             probes:
