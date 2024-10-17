@@ -31,7 +31,7 @@ spec:
           app:
             image:
               repository: ghcr.io/hotio/whisparr
-              tag: nightly-2.0.0.548@sha256:b7779b0170e1d2c8875540ec4b7f61863fb78eed686974f41d49dae2c3a6a18e
+              tag: nightly-2.0.0.548@sha256:962fc47e00fa9ffe1509eaa375dd5eff90f195dfa2c653595e875e395708d15e
             env:
               TZ: Asia/Jerusalem
             resources:
